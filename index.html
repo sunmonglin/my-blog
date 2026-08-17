@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西流未央的博客 | A Clockwork Blog</title>
+    <style>
+        /* 1. 核心视觉变量与全局重置 */
+        :root {
+            --bg-color: #111;
+            --accent-red: #e63946; /* 发条橙标志性的血红 */
+            --pure-white: #fff;
+            --border-style: 3px solid var(--pure-white);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--pure-white);
+            font-family: 'Courier New', Courier, monospace; /* 打字机/机械字体 */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 2. 极具冲击力的头部设计 */
+        header {
+            border-bottom: var(--border-style);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: var(--accent-red);
+            text-shadow: 4px 4px 0px #000;
+        }
+        .subtitle {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.8;
+            letter-spacing: 5px;
+        }
+
+        /* 3. 自由布局的网格系统 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* 文章区与侧边栏比例 */
+            gap: 40px;
+        }
+
+        /* 4. 文章卡片样式 */
+        .post-card {
+            border: var(--border-style);
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .post-card:hover { transform: translate(-5px, -5px); box-shadow: 10px 10px 0px var(--accent-red); }
+        .post-card h2 { font-size: 2rem; margin-bottom: 15px; color: var(--accent-red); }
+        .post-meta { font-size: 0.9rem; margin-bottom: 20px; opacity: 0.7; border-bottom: 1px solid #444; padding-bottom: 10px;}
+        .post-content { font-size: 1.1rem; }
+
+        /* 5. 评论区（Ludovico Technique 风格） */
+        .comment-section { border-top: var(--border-style); padding-top: 30px; margin-top: 40px; }
+        .comment-item { border-left: 4px solid var(--accent-red); padding-left: 15px; margin-bottom: 20px; }
+        .comment-author { font-weight: bold; color: var(--accent-red); }
+        
+        /* 6. 输入框与按钮 */
+        input, textarea {
+            width: 100%; padding: 15px; margin-bottom: 15px;
+            background: #000; border: 2px solid #fff; color: #fff;
+            font-family: inherit; font-size: 1rem; outline: none;
+        }
+        input:focus, textarea:focus { border-color: var(--accent-red); }
+        button {
+            background: var(--accent-red); color: #fff; border: none;
+            padding: 15px 30px; font-size: 1.2rem; font-weight: bold;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
+            transition: background 0.3s;
+        }
+        button:hover { background: #fff; color: #000; }
+
+        /* 7. 侧边栏 */
+        .sidebar-box { border: var(--border-style); padding: 20px; margin-bottom: 30px; }
+        .sidebar-box h3 { color: var(--accent-red); margin-bottom: 15px; font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; letter-spacing: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>西流未央的博客</h1>
+        <div class="subtitle">A CLOCKWORK ORANGE STYLE BLOG // 自由意志的数字化囚笼</div>
+    </header>
+
+    <div class="container">
+        <!-- 左侧：文章发布与展示区 -->
+        <main>
+            <article class="post-card">
+                <h2>暴力美学与代码的秩序</h2>
+                <div class="post-meta">2026-08-17 · 赛博哲学</div>
+                <div class="post-content">
+                    当我们在键盘上敲击下每一行代码时，是否也在构建一种无形的规训？在这个由 0 和 1 组成的世界里，没有绝对的自由，只有被设定好的逻辑与循环。正如那首被异化的《第九交响曲》，技术既是解放的工具，也是束缚的枷锁。
+                </div>
+            </article>
+
+            <article class="post-card">
+                <h2>路德维希疗法：数字时代的条件反射</h2>
+                <div class="post-meta">2026-08-15 · 社会观察</div>
+                <div class="post-content">
+                    算法正在成为现代社会的“治疗师”。它通过精准的推送，将我们的喜好与多巴胺绑定。我们以为自己拥有选择信息的自由，实则只是被上了发条的橙子，在既定的轨道上做出看似自主的反应。
+                </div>
+            </article>
+
+            <!-- 评论区 -->
+            <div class="comment-section">
+                <h3>// 留下你的思想印记</h3>
+                <div style="margin-top:20px;">
+                    <input type="text" id="cAuthor" placeholder="你的名字 (DROOG)">
+                    <textarea id="cContent" rows="4" placeholder="写下你的想法..."></textarea>
+                    <button onclick="alert('前端演示：真实评论需接入后端数据库！')">提交评论</button>
+                </div>
+                <div style="margin-top:30px;">
+                    <div class="comment-item">
+                        <div class="comment-author">Alex_DeLarge</div>
+                        <div>当人不能选择时，他就不再是个人。极好的文章！</div>
+                    </div>
+                    <div class="comment-item">
+                        <div class="comment-author">Prison_Chaplain</div>
+                        <div>伪善的体制，但代码本身是无罪的。</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧：侧边栏 -->
+        <aside>
+            <div class="sidebar-box">
+                <h3>// 系统状态</h3>
+                <p>STATUS: ONLINE<br>MOOD: VIOLENT<br>CLOCK: TICKING...</p>
+            </div>
+            <div class="sidebar-box">
+                <h3>// 档案分类</h3>
+                <ul style="list-style:none; line-height:2;">
+                    <li>> 暴力美学</li>
+                    <li>> 反乌托邦</li>
+                    <li>> 代码哲学</li>
+                    <li>> 自由意志</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

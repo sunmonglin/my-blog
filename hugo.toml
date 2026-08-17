@@ -4,7 +4,7 @@ title = '西流未央的博客'
 theme = 'PaperMod'
 
 [params]
-  description = "A CLOCKWORK ORANGE STYLE BLOG // 自由意志的数字化囚笼"
+  description = "When a man cannot choose, he ceases to be a man"
   favicon = "/favicon.ico"
   defaultTheme = "dark"
   disableThemeToggle = true
