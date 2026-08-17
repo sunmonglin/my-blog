@@ -5,6 +5,7 @@ theme = 'PaperMod'
 
 [params]
   description = "A CLOCKWORK ORANGE STYLE BLOG // 自由意志的数字化囚笼"
+  favicon = "/favicon.ico"
   defaultTheme = "dark"
   disableThemeToggle = true
   ShowReadingTime = true
