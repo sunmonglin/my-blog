@@ -1,0 +1,23 @@
+baseURL = 'https://example.org/'
+locale = 'zh-cn'
+title = '西流未央的博客'
+theme = 'PaperMod'
+
+[params]
+  description = "A CLOCKWORK ORANGE STYLE BLOG // 自由意志的数字化囚笼"
+  defaultTheme = "dark"
+  disableThemeToggle = true
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = false
+  TocOpen = false
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
