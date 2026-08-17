@@ -15,6 +15,7 @@ theme = 'PaperMod'
   ShowCodeCopyButtons = true
   ShowToc = false
   TocOpen = false
+  mainSections = ["社会观察", "精神自省"]
 
 [markup.goldmark.renderer]
   unsafe = true
