@@ -121,16 +121,14 @@
          MOOD: <span style="color:#e63946">VIOLENT</span><br>
          CLOCK: <span style="color:#e63946">TICKING...</span></p>
     </div>
-    {{- if site.Taxonomies.tags }}
     <div class="sidebar-box">
       <h3>// 档案分类</h3>
       <ul>
-        {{- range $name, $taxonomy := site.Taxonomies.tags }}
-        <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/">{{ $name }}</a></li>
+        {{- range site.RegularPages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{- end }}
       </ul>
     </div>
-    {{- end }}
     <div class="sidebar-box">
       <h3>// 分类目录</h3>
       <ul>
