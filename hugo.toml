@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://book-ebx.pages.dev/'
 locale = 'zh-cn'
 title = '西流未央的博客'
 theme = 'PaperMod'
