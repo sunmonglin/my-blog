@@ -1,0 +1,22 @@
+{{- $scratch := newScratch }}
+{{- $scratch.Set "hasOutput" false }}
+
+{{- with .Date }}
+{{- $scratch.Set "hasOutput" true }}
+{{- $scratch.Add "meta" (printf "%d/%02d/%02d/%02d" .Year .Month .Day .Hour) }}
+{{- end }}
+
+{{- $wordCount := .WordCount }}
+{{- if gt $wordCount 0 }}
+{{- $scratch.Set "hasOutput" true }}
+{{- $scratch.Add "meta" (printf "%d 字" $wordCount) }}
+{{- end }}
+
+{{- if ($scratch.Get "hasOutput") }}
+<span class="entry-meta">
+  {{- range $index, $item := ($scratch.Get "meta") }}
+  {{- if $index }}&nbsp;·&nbsp;{{ end }}
+  <span>{{ $item }}</span>
+  {{- end }}
+</span>
+{{- end }}
