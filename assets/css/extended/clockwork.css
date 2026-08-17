@@ -467,7 +467,17 @@ body {
     color: #fff !important;
 }
 
-/* ── 16. 响应式 ── */
+/* ── 16. 文章段落首行缩进 ── */
+.post-content p {
+    text-indent: 2em;
+}
+
+.post-content h2,
+.post-content h3 {
+    text-indent: 0;
+}
+
+/* ── 17. 响应式 ── */
 @media (max-width: 900px) {
     .clockwork-container {
         grid-template-columns: 1fr !important;
