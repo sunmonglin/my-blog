@@ -59,26 +59,24 @@
 
   <div class="comment-section">
     <h3>// 留下你的思想印记</h3>
-    <div style="margin-top:20px;">
-      <input type="text" placeholder="你的名字 (DROOG)">
-      <textarea rows="4" placeholder="写下你的想法..."></textarea>
-      <button onclick="alert('前端演示：真实评论需接入 Disqus / Giscus 等后端！')">提交评论</button>
-    </div>
-    <div style="margin-top:30px;">
-      <div class="comment-item">
-        <div class="comment-author">Alex_DeLarge</div>
-        <div>当人不能选择时，他就不再是个人。极好的文章！</div>
-      </div>
-      <div class="comment-item">
-        <div class="comment-author">Prison_Chaplain</div>
-        <div>伪善的体制，但代码本身是无罪的。</div>
-      </div>
-    </div>
+    <div class="giscus" style="margin-top:20px;"></div>
   </div>
 
-  {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
-  {{- end }}
+  <script src="https://giscus.app/client.js"
+    data-repo="sunmonglin/my-blog"
+    data-repo-id="R_kgDOT6yAuQ"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOT6yAuc4DDj8C"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+  </script>
 </article>
 
 {{- end }}{{/* end main */}}
