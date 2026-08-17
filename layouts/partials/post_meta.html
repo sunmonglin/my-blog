@@ -1,3 +1,5 @@
 <span class="entry-meta">
 {{- if .Date }}<span>{{ .Date.Format "2006/01/02 15:04:05" }}</span>{{- end }}
+{{- if gt .WordCount 0 }}&nbsp;·&nbsp;<span>{{ .WordCount }} 字</span>{{- end }}
+&nbsp;·&nbsp;<span>西流未央原创</span>
 </span>
