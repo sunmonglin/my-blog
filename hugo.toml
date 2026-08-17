@@ -22,3 +22,11 @@ theme = 'PaperMod'
 [taxonomies]
   tag = "tags"
   category = "categories"
+
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
