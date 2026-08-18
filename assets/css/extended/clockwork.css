@@ -768,7 +768,7 @@ body {
 [data-theme="light"] .ascii-icon-scattered,
 [data-theme="light"] .ascii-icon-fixed {
     color: #c62828;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 
 /* ── 20. 首页搜索框 ── */
