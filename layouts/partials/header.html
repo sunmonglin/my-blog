@@ -89,15 +89,16 @@
 
 <style>
 .post-content p, .entry-content p { text-indent: 2em; margin-bottom: 1em; }
-.comment-section h3 { color: #e63946; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
-.comment-divider { border-top-color: #333; }
-.giscus { border-top: 1px solid #333; padding-top: 20px; }
+.comment-section h3 { color: var(--theme-color, #e63946); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+.comment-divider { border-top-color: var(--border-color, #333); }
+.giscus { border-top: 1px solid var(--border-color, #333); padding-top: 20px; }
 </style>
+
 {{- if .IsHome }}
-<div class="clockwork-banner" style="position:relative;">
-    <h1 style="display:inline;">{{ .Site.Title }}</h1>
+<div class="clockwork-banner">
+    <h1 class="clockwork-title">{{ .Site.Title }}</h1>
     {{- if (not site.Params.disableThemeToggle) }}
-    <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme" style="position:absolute;top:20px;right:30px;background:transparent;border:none;color:#fff;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px;">
+    <button id="theme-toggle" class="theme-toggle clockwork-theme-btn" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -118,120 +119,118 @@
         </svg>
     </button>
     {{- end }}
-    <div class="clockwork-subtitle">When a man cannot choose, he ceases to be a man</div>
+    <div class="clockwork-subtitle">{{ .Site.Params.description }}</div>
 
-    <div class="clockwork-contact" style="margin-top:12px;font-size:0.9em;opacity:0.7;">
-        QQ: 3769967977 &nbsp;|&nbsp; EMAIL: sunmonglin@gmail.com &nbsp;|&nbsp; <a href="/about/" style="color:#e63946;text-decoration:none;">关于我</a>
+    <div class="clockwork-contact">
+        qq: 3769967977 &nbsp;|&nbsp; email: sunmonglin@gmail.com &nbsp;|&nbsp; <a href="/about/">关于我</a>
     </div>
 </div>
 {{- end }}
+
 {{- if .IsHome }}
 <div class="ascii-man" id="ascii-man"></div>
 <div class="ascii-right" id="ascii-right"></div>
 <div id="ascii-scattered"></div>
 <script>
-fetch('/ascii-man.txt').then(function(r){return r.text()}).then(function(t){
-  var el=document.getElementById('ascii-man');
-  if(el){el.textContent=t;}
-});
-fetch('/ascii-art-right.txt').then(function(r){return r.text()}).then(function(t){
-  var el=document.getElementById('ascii-right');
-  if(el){el.textContent=t;}
-});
-fetch('/ascii-icons.txt').then(function(r){return r.text()}).then(function(raw){
-  var lines=raw.split('\n');
-  var maxLen=0;
-  for(var i=0;i<lines.length;i++){if(lines[i].length>maxLen)maxLen=lines[i].length}
-  var cols=[];for(var c=0;c<maxLen;c++)cols[c]=0;
-  for(var i=0;i<lines.length;i++){for(var c=0;c<lines[i].length;c++){if(lines[i][c]!==' ')cols[c]++}}
-  var regions=[];var inR=false;var rs=0;
-  for(var c=0;c<maxLen;c++){if(cols[c]>0&&!inR){inR=true;rs=c}else if(cols[c]===0&&inR){inR=false;if(c-rs>8)regions.push([rs,c])}}
-  if(inR&&maxLen-rs>8)regions.push([rs,maxLen]);
-  var icons=[];
-  for(var r=0;r<regions.length;r++){
-    var s=regions[r][0],e=regions[r][1];
-    var iconLines=[];var hasContent=false;
-    for(var i=0;i<lines.length;i++){
-      var line=lines[i];
-      var seg='';
-      for(var c=s;c<e&&c<line.length;c++)seg+=line[c];
-      if(seg.trim().length>0)hasContent=true;
-      iconLines.push(seg);
+(function() {
+    function loadAscii(url, elementId) {
+        fetch(url).then(function(r) {
+            if (!r.ok) throw new Error(r.status);
+            return r.text();
+        }).then(function(t) {
+            var el = document.getElementById(elementId);
+            if (el) el.textContent = t;
+        }).catch(function() {});
     }
-    if(!hasContent)continue;
-    while(iconLines.length>0&&iconLines[0].trim().length===0)iconLines.shift();
-    while(iconLines.length>0&&iconLines[iconLines.length-1].trim().length===0)iconLines.pop();
-    if(iconLines.length>0)icons.push(iconLines.join('\n'));
-  }
-  var container=document.getElementById('ascii-scattered');
-  if(!container||icons.length===0)return;
-  var count=Math.min(icons.length,6);
-  var indices=[];while(indices.length<count){var idx=Math.floor(Math.random()*icons.length);if(indices.indexOf(idx)===-1)indices.push(idx)}
-  for(var n=0;n<count;n++){
-    var div=document.createElement('div');
-    div.className='ascii-icon-scattered';
-    div.textContent=icons[indices[n]];
-    div.style.left=Math.floor(Math.random()*85+2)+'%';
-    div.style.top=Math.floor(Math.random()*80+10)+'%';
-    div.style.transform='rotate('+(Math.floor(Math.random()*40)-20)+'deg)';
-    container.appendChild(div);
-  }
-});
+    loadAscii('/ascii-man.txt', 'ascii-man');
+    loadAscii('/ascii-art-right.txt', 'ascii-right');
+
+    fetch('/ascii-icons.txt').then(function(r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+    }).then(function(raw) {
+        var lines = raw.split('\n');
+        var maxLen = 0;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].length > maxLen) maxLen = lines[i].length;
+        }
+        var cols = [];
+        for (var c = 0; c < maxLen; c++) cols[c] = 0;
+        for (var i = 0; i < lines.length; i++) {
+            for (var c = 0; c < lines[i].length; c++) {
+                if (lines[i][c] !== ' ') cols[c]++;
+            }
+        }
+        var regions = [];
+        var inR = false;
+        var rs = 0;
+        for (var c = 0; c < maxLen; c++) {
+            if (cols[c] > 0 && !inR) { inR = true; rs = c; }
+            else if (cols[c] === 0 && inR) { inR = false; if (c - rs > 8) regions.push([rs, c]); }
+        }
+        if (inR && maxLen - rs > 8) regions.push([rs, maxLen]);
+
+        var icons = [];
+        for (var r = 0; r < regions.length; r++) {
+            var s = regions[r][0], e = regions[r][1];
+            var iconLines = [];
+            var hasContent = false;
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                var seg = '';
+                for (var c = s; c < e && c < line.length; c++) seg += line[c];
+                if (seg.trim().length > 0) hasContent = true;
+                iconLines.push(seg);
+            }
+            if (!hasContent) continue;
+            while (iconLines.length > 0 && iconLines[0].trim().length === 0) iconLines.shift();
+            while (iconLines.length > 0 && iconLines[iconLines.length - 1].trim().length === 0) iconLines.pop();
+            if (iconLines.length > 0) icons.push(iconLines.join('\n'));
+        }
+
+        var container = document.getElementById('ascii-scattered');
+        if (!container || icons.length === 0) return;
+        var count = Math.min(icons.length, 6);
+        var indices = [];
+        while (indices.length < count) {
+            var idx = Math.floor(Math.random() * icons.length);
+            if (indices.indexOf(idx) === -1) indices.push(idx);
+        }
+        for (var n = 0; n < count; n++) {
+            var div = document.createElement('div');
+            div.className = 'ascii-icon-scattered';
+            div.textContent = icons[indices[n]];
+            div.style.left = Math.floor(Math.random() * 85 + 2) + '%';
+            div.style.top = Math.floor(Math.random() * 80 + 10) + '%';
+            div.style.transform = 'rotate(' + (Math.floor(Math.random() * 40) - 20) + 'deg)';
+            container.appendChild(div);
+        }
+    }).catch(function() {});
+})();
 </script>
-{{- end }}
 
 <style>
-.ascii-man {
-    position: fixed;
-    right: -60px;
-    bottom: auto;
-    top: 40%;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 6px;
-    line-height: 1;
-    color: #e63946;
-    opacity: 0.15;
-    pointer-events: none;
-    white-space: pre;
-    z-index: 1;
-    max-height: 100vh;
-    overflow: hidden;
-}
-.ascii-right {
-    position: fixed;
-    left: -20px;
-    top: 55%;
-    transform: translateY(-50%);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 6px;
-    line-height: 1;
-    color: #e63946;
-    opacity: 0.15;
-    pointer-events: none;
-    white-space: pre;
-    z-index: 1;
-    max-height: 100vh;
-    overflow: hidden;
-}
-[data-theme="light"] .ascii-man,
-[data-theme="light"] .ascii-right {
-    color: #c62828;
-    opacity: 0.1;
-}
-.ascii-icon-scattered {
+.clockwork-theme-btn {
     position: absolute;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 5px;
-    line-height: 1;
-    color: #e63946;
-    opacity: 0.07;
-    pointer-events: none;
-    white-space: pre;
-    z-index: 0;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
 }
-[data-theme="light"] .ascii-icon-scattered {
+.clockwork-theme-btn:hover {
+    background: var(--theme-color, #e63946);
+}
+.clockwork-contact a {
+    color: var(--theme-color, #e63946);
+    text-decoration: none;
+}
+[data-theme="light"] .clockwork-contact a {
     color: #c62828;
-    opacity: 0.05;
 }
 </style>
-
+{{- end }}

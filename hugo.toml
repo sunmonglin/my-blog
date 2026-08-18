@@ -1,10 +1,12 @@
 baseURL = 'https://book-ebx.pages.dev/'
 locale = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
 title = '西流未央的博客'
 theme = 'PaperMod'
 
 [params]
-  description = "When a man cannot choose, he ceases to be a man"
+  author = "西流未央"
+  description = "当人不能选择的时候，他就不再是一个人了。"
   defaultTheme = "dark"
   disableThemeToggle = false
   ShowReadingTime = true
@@ -12,15 +14,27 @@ theme = 'PaperMod'
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  ShowToc = false
+  ShowToc = true
   TocOpen = false
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = false
+  UseHugoToc = true
   mainSections = ["社会观察", "精神自省"]
 
-[params.assets]
-  favicon = "/favicon.ico"
+  [params.assets]
+    favicon = "/favicon.ico"
 
-[markup.goldmark.renderer]
-  unsafe = true
+  [params.label]
+    text = "西流未央的博客"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:sunmonglin@gmail.com"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [taxonomies]
   tag = "tags"

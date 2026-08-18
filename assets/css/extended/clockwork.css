@@ -1,6 +1,6 @@
 /* === A Clockwork Orange Theme for PaperMod === */
 
-/* ── 1. PaperMod 核心变量覆盖 ── */
+/* ── 1. CSS 变量 ── */
 :root {
     --theme-color: #e63946;
     --theme-color-secondary: #ff6b6b;
@@ -25,7 +25,6 @@ body {
     font-family: 'Courier New', Courier, monospace !important;
     background-color: #111 !important;
     color: #fff !important;
-    position: relative;
 }
 
 ::selection {
@@ -33,73 +32,69 @@ body {
     color: #fff;
 }
 
-/* ── 3. 导航栏（保留 PaperMod 功能，覆盖外观） ── */
+/* ── 3. 导航栏 ── */
 .header {
-    background: #111 !important;
-    border-bottom: 3px solid #fff !important;
+    background: #111;
+    border-bottom: 3px solid #fff;
     position: relative;
     z-index: 2;
 }
 
 .header-nav {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 15px 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo a {
-    color: #e63946 !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    font-size: 1.3rem !important;
-    font-weight: bold !important;
-    text-transform: uppercase !important;
-    letter-spacing: 3px !important;
-    text-decoration: none !important;
+    color: #e63946;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none;
 }
 
 .logo a:hover {
-    color: #ff6b6b !important;
+    color: #ff6b6b;
 }
 
 .logo-switches {
-    display: flex !important;
-    align-items: center !important;
-    margin-left: 15px !important;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
 }
 
 .logo-switches .theme-toggle {
-    background: transparent !important;
-    border: none !important;
-    color: #fff !important;
-    padding: 5px 8px !important;
-    cursor: pointer !important;
-    transition: all 0.3s !important;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .logo-switches .theme-toggle:hover {
-    background: #e63946 !important;
-    border-color: #e63946 !important;
+    background: #e63946;
+    border-color: #e63946;
 }
 
 .menu li a {
-    color: #fff !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    font-size: 0.85rem !important;
-    transition: color 0.3s !important;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: color 0.3s;
 }
 
 .menu li a:hover,
 .menu li a .active {
-    color: #e63946 !important;
-}
-
-.nav-sep {
-    color: #555 !important;
+    color: #e63946;
 }
 
 /* ── 4. 自定义头部横幅 ── */
@@ -112,7 +107,8 @@ body {
     z-index: 2;
 }
 
-.clockwork-banner h1 {
+.clockwork-title {
+    display: inline;
     font-size: 3rem;
     text-transform: uppercase;
     letter-spacing: 10px;
@@ -129,17 +125,19 @@ body {
     margin-bottom: 15px;
 }
 
-.clockwork-status {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: #888;
-    border-top: 1px solid #333;
-    padding-top: 12px;
-    margin-top: 10px;
+.clockwork-contact {
+    margin-top: 12px;
+    font-size: 0.9em;
+    opacity: 0.7;
 }
 
-.clockwork-status span {
+.clockwork-contact a {
     color: #e63946;
+    text-decoration: none;
+}
+
+.clockwork-contact a:hover {
+    text-decoration: underline;
 }
 
 /* ── 5. 内容容器（两栏网格） ── */
@@ -154,6 +152,7 @@ body {
     z-index: 0;
     overflow: hidden;
 }
+
 .clockwork-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -173,167 +172,156 @@ body {
     min-width: 0;
 }
 
-/* ── 6. PaperMod 默认文章条目覆盖 ── */
-.post-entry {
-    border: 3px solid #fff !important;
-    padding: 30px !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    transition: transform 0.2s, box-shadow 0.2s !important;
-    background: transparent !important;
-}
-
-.post-entry:hover {
-    transform: translate(-5px, -5px) !important;
-    box-shadow: 10px 10px 0px #e63946 !important;
-}
-
+/* ── 6. 文章条目 ── */
+.post-entry,
 .first-entry {
-    border: 3px solid #fff !important;
-    padding: 30px !important;
-    margin-bottom: 30px !important;
-    background: transparent !important;
-    transition: transform 0.2s, box-shadow 0.2s !important;
+    border: 3px solid #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    background: transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.post-entry:hover,
 .first-entry:hover {
-    transform: translate(-5px, -5px) !important;
-    box-shadow: 10px 10px 0px #e63946 !important;
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 0px #e63946;
 }
 
 .entry-header h2 {
-    font-size: 1.8rem !important;
-    margin-bottom: 15px !important;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
 
 .entry-header h2 a,
 .entry-header h2 {
-    color: #e63946 !important;
-    text-decoration: none !important;
+    color: #e63946;
+    text-decoration: none;
 }
 
 .entry-content p {
-    font-size: 1.05rem !important;
-    line-height: 1.8 !important;
-    color: #ddd !important;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #ddd;
 }
 
 .entry-footer {
-    border-top: 1px solid #333 !important;
-    padding-top: 10px !important;
-    margin-top: 15px !important;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    margin-top: 15px;
 }
 
 .entry-footer a {
-    color: #e63946 !important;
+    color: #e63946;
 }
 
 .entry-link {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* ── 7. 文章详情页 ── */
 .post-single {
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 .post-single .post-title {
-    font-size: 2.5rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 5px !important;
-    color: #e63946 !important;
-    text-shadow: 3px 3px 0px #000 !important;
-    margin-bottom: 20px !important;
-    line-height: 1.3 !important;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #e63946;
+    text-shadow: 3px 3px 0px #000;
+    margin-bottom: 20px;
+    line-height: 1.3;
 }
 
 .post-single .post-meta {
-    font-size: 0.9rem !important;
-    opacity: 0.7 !important;
-    border-bottom: 1px solid #444 !important;
-    padding-bottom: 10px !important;
-    margin-bottom: 30px !important;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .post-single .post-meta a {
-    color: #e63946 !important;
+    color: #e63946;
 }
 
 .post-single .post-content {
-    font-size: 1.1rem !important;
-    line-height: 1.9 !important;
+    font-size: 1.1rem;
+    line-height: 1.9;
 }
 
 .post-single .post-content h2 {
-    color: #e63946 !important;
-    border-bottom: 2px solid #333 !important;
-    padding-bottom: 10px !important;
-    margin-top: 40px !important;
+    color: #e63946;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-top: 40px;
 }
 
 .post-single .post-content h3 {
-    color: #ff6b6b !important;
+    color: #ff6b6b;
 }
 
 .post-single .post-content a {
-    color: #e63946 !important;
-    text-decoration: underline !important;
-    text-underline-offset: 3px !important;
+    color: #e63946;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .post-single .post-content a:hover {
-    color: #ff6b6b !important;
+    color: #ff6b6b;
 }
 
 .post-single .post-content blockquote {
-    border-left: 4px solid #e63946 !important;
-    background: #1a1a1a !important;
-    padding: 15px 20px !important;
-    margin: 20px 0 !important;
-    font-style: italic !important;
-    color: #ccc !important;
+    border-left: 4px solid #e63946;
+    background: #1a1a1a;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #ccc;
 }
 
 .post-single .post-content code {
-    background: #2a2a2a !important;
-    color: #e63946 !important;
-    padding: 2px 6px !important;
-    border-radius: 3px !important;
-    font-size: 0.9em !important;
+    background: #2a2a2a;
+    color: #e63946;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
 }
 
 .post-single .post-content pre {
-    background: #0a0a0a !important;
-    border: 1px solid #333 !important;
-    padding: 20px !important;
-    overflow-x: auto !important;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    padding: 20px;
+    overflow-x: auto;
 }
 
 .post-single .post-content pre code {
-    background: transparent !important;
-    color: #ddd !important;
-    padding: 0 !important;
+    background: transparent;
+    color: #ddd;
+    padding: 0;
 }
 
 .post-single .post-tags a {
-    color: #e63946 !important;
-    border: 1px solid #e63946 !important;
-    padding: 3px 10px !important;
-    text-transform: uppercase !important;
-    font-size: 0.8rem !important;
-    letter-spacing: 1px !important;
-    transition: all 0.3s !important;
+    color: #e63946;
+    border: 1px solid #e63946;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
 }
 
 .post-single .post-tags a:hover {
-    background: #e63946 !important;
-    color: #fff !important;
+    background: #e63946;
+    color: #fff;
 }
 
 /* ── 8. 侧边栏 ── */
@@ -406,58 +394,63 @@ body {
 
 /* ── 10. 页面页脚 ── */
 .footer {
-    background: #111 !important;
-    border-top: 3px solid #fff !important;
-    padding: 30px 20px !important;
-    text-align: center !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    color: #888 !important;
+    background: #111;
+    border-top: 3px solid #fff;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #888;
     position: relative;
     z-index: 2;
 }
 
 .footer a {
-    color: #e63946 !important;
+    color: #e63946;
 }
 
 /* ── 11. 分页导航 ── */
 .page-footer {
-    border-top: 3px solid #fff !important;
-    padding-top: 20px !important;
-    margin-top: 40px !important;
+    border-top: 3px solid #fff;
+    padding-top: 20px;
+    margin-top: 40px;
 }
 
 .pagination a {
-    color: #e63946 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    transition: color 0.3s !important;
+    color: #e63946;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    transition: color 0.3s;
 }
 
 .pagination a:hover {
-    color: #ff6b6b !important;
+    color: #ff6b6b;
 }
 
 /* ── 12. 标签和分类页 ── */
 .page-header h1 {
-    color: #e63946 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 5px !important;
+    color: #e63946;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.post-description {
+    color: #ccc;
+    margin-top: 10px;
 }
 
 /* ── 13. 搜索框 ── */
 .search-input {
-    background: #000 !important;
-    border: 2px solid #fff !important;
-    color: #fff !important;
-    font-family: 'Courier New', Courier, monospace !important;
-    padding: 12px 15px !important;
+    background: #000;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 12px 15px;
 }
 
 .search-input:focus {
-    border-color: #e63946 !important;
-    outline: none !important;
+    border-color: #e63946;
+    outline: none;
 }
 
 /* ── 14. 滚动条 ── */
@@ -478,7 +471,54 @@ body {
     background: #ff6b6b;
 }
 
-/* ── 15. 亮色模式 ── */
+/* ── 15. 段落首行缩进 ── */
+.post-content p {
+    text-indent: 2em;
+}
+
+.post-content h2,
+.post-content h3 {
+    text-indent: 0;
+}
+
+/* ── 16. 主内容区域层级 ── */
+.main {
+    position: relative;
+    z-index: 2;
+}
+
+/* ── 17. 文章导航链接 ── */
+.post-nav-links {
+    margin-top: 20px;
+}
+
+.post-nav-links a {
+    color: #e63946;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-nav-links a:hover {
+    color: #ff6b6b;
+}
+
+/* ── 18. 面包屑 ── */
+.breadcrumbs {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.breadcrumbs a {
+    color: #e63946;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* ── 19. 亮色模式 ── */
 [data-theme="light"] {
     --theme-color: #c62828;
     --theme-color-secondary: #e53935;
@@ -498,143 +538,146 @@ body {
 }
 
 [data-theme="light"] .header {
-    background: #fff !important;
-    border-bottom-color: #ddd !important;
+    background: #fff;
+    border-bottom-color: #ddd;
 }
 
 [data-theme="light"] .logo a {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .logo-switches .theme-toggle {
-    border-color: #999 !important;
-    color: #333 !important;
+    border-color: #999;
+    color: #333;
 }
 
 [data-theme="light"] .logo-switches .theme-toggle:hover {
-    background: #c62828 !important;
-    border-color: #c62828 !important;
-    color: #fff !important;
+    background: #c62828;
+    border-color: #c62828;
+    color: #fff;
 }
 
 [data-theme="light"] .menu li a {
-    color: #333 !important;
+    color: #333;
 }
 
 [data-theme="light"] .menu li a:hover,
 [data-theme="light"] .menu li a .active {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .clockwork-banner {
-    background: #fff !important;
-    border-bottom-color: #ddd !important;
+    background: #fff;
+    border-bottom-color: #ddd;
 }
 
-[data-theme="light"] .clockwork-banner h1 {
-    color: #c62828 !important;
-    text-shadow: 2px 2px 0px #eee !important;
-}
-
-[data-theme="light"] .clockwork-banner .theme-toggle {
-    border-color: #333 !important;
-    color: #333 !important;
+[data-theme="light"] .clockwork-title {
+    color: #c62828;
+    text-shadow: 2px 2px 0px #eee;
 }
 
 [data-theme="light"] .clockwork-subtitle {
-    color: #333 !important;
+    color: #333;
+}
+
+[data-theme="light"] .clockwork-contact a {
+    color: #c62828;
 }
 
 [data-theme="light"] .post-entry,
 [data-theme="light"] .first-entry {
-    border-color: #ddd !important;
-    background: #fff !important;
+    border-color: #ddd;
+    background: #fff;
 }
 
 [data-theme="light"] .post-entry:hover,
 [data-theme="light"] .first-entry:hover {
-    box-shadow: 10px 10px 0px #c62828 !important;
+    box-shadow: 10px 10px 0px #c62828;
 }
 
 [data-theme="light"] .entry-header h2,
 [data-theme="light"] .entry-header h2 a {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .entry-content p {
-    color: #333 !important;
+    color: #333;
 }
 
 [data-theme="light"] .entry-footer {
-    border-top-color: #ddd !important;
+    border-top-color: #ddd;
 }
 
 [data-theme="light"] .post-single .post-title {
-    color: #c62828 !important;
-    text-shadow: 2px 2px 0px #eee !important;
+    color: #c62828;
+    text-shadow: 2px 2px 0px #eee;
 }
 
 [data-theme="light"] .post-single .post-content h2 {
-    border-bottom-color: #ddd !important;
-    color: #c62828 !important;
+    border-bottom-color: #ddd;
+    color: #c62828;
 }
 
 [data-theme="light"] .post-single .post-content a {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .post-single .post-content blockquote {
-    border-left-color: #c62828 !important;
-    background: #f5f5f5 !important;
-    color: #555 !important;
+    border-left-color: #c62828;
+    background: #f5f5f5;
+    color: #555;
+}
+
+[data-theme="light"] .post-description {
+    color: #555;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box {
-    border-color: #ddd !important;
-    background: #fff !important;
+    border-color: #ddd;
+    background: #fff;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box h3 {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box ul li {
-    color: #333 !important;
+    color: #333;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box ul li a {
-    color: #333 !important;
+    color: #333;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box ul li a:hover {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .clockwork-sidebar .sidebar-box ul li::before {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .footer {
-    background: #fff !important;
-    border-top-color: #ddd !important;
-    color: #666 !important;
+    background: #fff;
+    border-top-color: #ddd;
+    color: #666;
 }
 
 [data-theme="light"] .footer a {
-    color: #c62828 !important;
+    color: #c62828;
 }
 
 [data-theme="light"] .page-footer {
-    border-top-color: #ddd !important;
+    border-top-color: #ddd;
 }
 
 [data-theme="light"] .comment-divider {
-    border-top-color: #ddd !important;
+    border-top-color: #ddd;
 }
 
 [data-theme="light"] .comment-divider::before {
-    background: #fafafa !important;
-    color: #999 !important;
+    background: #fafafa;
+    color: #999;
 }
 
 [data-theme="light"] ::selection {
@@ -647,55 +690,85 @@ body {
 }
 
 [data-theme="light"] .search-input {
-    background: #fff !important;
-    border-color: #ddd !important;
-    color: #333 !important;
+    background: #fff;
+    border-color: #ddd;
+    color: #333;
 }
 
 [data-theme="light"] .search-input:focus {
-    border-color: #c62828 !important;
+    border-color: #c62828;
 }
 
-/* ── 16. 文章段落首行缩进 ── */
-.post-content p {
-    text-indent: 2em;
+[data-theme="light"] .page-header h1 {
+    color: #c62828;
 }
 
-.post-content h2,
-.post-content h3 {
-    text-indent: 0;
+[data-theme="light"] .breadcrumbs {
+    color: #666;
 }
 
-/* ── 16b. 主内容区域层级 ── */
-.main {
-    position: relative;
-    z-index: 2;
+[data-theme="light"] .breadcrumbs a {
+    color: #c62828;
 }
 
-/* ── 17. 响应式 ── */
+/* ── 20. 响应式 ── */
 @media (max-width: 900px) {
     .clockwork-container {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-    .clockwork-banner h1 {
-        font-size: 2rem !important;
-        letter-spacing: 5px !important;
+    .clockwork-title {
+        font-size: 2rem;
+        letter-spacing: 5px;
     }
-    .clockwork-status {
-        font-size: 0.7rem !important;
-        letter-spacing: 2px !important;
+    .clockwork-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
     }
     .post-single .post-title {
-        font-size: 1.8rem !important;
-        letter-spacing: 3px !important;
+        font-size: 1.8rem;
+        letter-spacing: 3px;
     }
     .header-nav {
-        flex-direction: column !important;
-        gap: 10px !important;
+        flex-direction: column;
+        gap: 10px;
     }
     .menu {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .clockwork-banner {
+        padding: 30px 15px 20px;
+    }
+    .clockwork-theme-btn {
+        position: static;
+        margin-top: 10px;
+    }
+    .post-entry,
+    .first-entry {
+        padding: 20px;
+    }
+    .clockwork-sidebar .sidebar-box {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clockwork-title {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+    .post-single .post-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    .entry-header h2 {
+        font-size: 1.4rem;
+    }
+    .post-single .post-content {
+        font-size: 1rem;
+    }
+    .clockwork-contact {
+        font-size: 0.75rem;
     }
 }
