@@ -79,6 +79,39 @@
     crossorigin="anonymous"
     async>
   </script>
+
+  <script>
+    function getGiscusTheme() {
+      var theme = document.documentElement.getAttribute("data-theme");
+      return theme === "light" ? "light" : "dark";
+    }
+
+    function setGiscusTheme() {
+      var iframe = document.querySelector(".giscus-frame");
+      if (!iframe) return;
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: getGiscusTheme() } } },
+        "https://giscus.app"
+      );
+    }
+
+    var observer = new MutationObserver(function() {
+      var iframe = document.querySelector(".giscus-frame");
+      if (iframe) {
+        iframe.addEventListener("load", setGiscusTheme);
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    var themeObserver = new MutationObserver(function() {
+      setGiscusTheme();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"]
+    });
+  </script>
 </article>
 
 {{- end }}{{/* end main */}}
