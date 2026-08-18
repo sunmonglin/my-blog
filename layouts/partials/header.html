@@ -125,4 +125,35 @@
     </div>
 </div>
 {{- end }}
+{{- if .IsHome }}
+<div class="ascii-man" id="ascii-man"></div>
+<script>
+fetch('/ascii-man.txt').then(function(r){return r.text()}).then(function(t){
+  var el=document.getElementById('ascii-man');
+  if(el){el.textContent=t;}
+});
+</script>
+{{- end }}
+
+<style>
+.ascii-man {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 6px;
+    line-height: 1;
+    color: #e63946;
+    opacity: 0.15;
+    pointer-events: none;
+    white-space: pre;
+    z-index: 1;
+    max-height: 100vh;
+    overflow: hidden;
+}
+[data-theme="light"] .ascii-man {
+    color: #c62828;
+    opacity: 0.1;
+}
+</style>
 
