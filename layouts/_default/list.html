@@ -48,6 +48,13 @@
 
 <div class="clockwork-container">
   <main class="clockwork-main">
+    {{- if .IsHome }}
+    <div class="home-search">
+      <form action="/search/" method="get">
+        <input type="text" name="s" placeholder="搜索文章..." aria-label="搜索" class="home-search-input">
+      </form>
+    </div>
+    {{- end }}
     {{- $term := .Data.Term }}
     {{- range $index, $page := $paginator.Pages }}
 

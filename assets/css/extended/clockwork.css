@@ -771,7 +771,40 @@ body {
     opacity: 0.15;
 }
 
-/* ── 20. 统一文章标题大小 ── */
+/* ── 20. 首页搜索框 ── */
+.home-search {
+    margin-bottom: 30px;
+}
+.home-search-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    background: #000;
+    border: 2px solid #fff;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.home-search-input:focus {
+    border-color: #e63946;
+}
+.home-search-input::placeholder {
+    color: #888;
+}
+[data-theme="light"] .home-search-input {
+    background: #fff;
+    border-color: #333;
+    color: #222;
+}
+[data-theme="light"] .home-search-input:focus {
+    border-color: #c62828;
+}
+[data-theme="light"] .home-search-input::placeholder {
+    color: #999;
+}
+
+/* ── 21. 统一文章标题大小 ── */
 .first-entry .entry-header h2,
 .post-entry .entry-header h2,
 .entry-header h2 {
