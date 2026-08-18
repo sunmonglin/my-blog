@@ -5,7 +5,6 @@ theme = 'PaperMod'
 
 [params]
   description = "When a man cannot choose, he ceases to be a man"
-  favicon = "/favicon.png"
   defaultTheme = "dark"
   disableThemeToggle = false
   ShowReadingTime = true
@@ -16,6 +15,9 @@ theme = 'PaperMod'
   ShowToc = false
   TocOpen = false
   mainSections = ["社会观察", "精神自省"]
+
+[params.assets]
+  favicon = "/favicon.png"
 
 [markup.goldmark.renderer]
   unsafe = true
