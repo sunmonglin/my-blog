@@ -47,3 +47,10 @@ theme = 'PaperMod'
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[menu]
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 10
