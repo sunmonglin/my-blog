@@ -772,8 +772,10 @@ body {
 }
 
 /* ── 20. 统一文章标题大小 ── */
-.first-entry .entry-header h2 {
-    font-size: 24px;
+.first-entry .entry-header h2,
+.post-entry .entry-header h2,
+.entry-header h2 {
+    font-size: 24px !important;
 }
 
 /* ── 21. 响应式 ── */
