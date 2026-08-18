@@ -522,8 +522,9 @@ body {
     overflow: hidden;
 }
 
-.ascii-icon-scattered {
-    position: absolute;
+.ascii-icon-scattered,
+.ascii-icon-fixed {
+    position: fixed;
     font-family: 'Courier New', Courier, monospace;
     font-size: 5px;
     line-height: 1;
@@ -764,7 +765,8 @@ body {
     opacity: 0.1;
 }
 
-[data-theme="light"] .ascii-icon-scattered {
+[data-theme="light"] .ascii-icon-scattered,
+[data-theme="light"] .ascii-icon-fixed {
     color: #c62828;
     opacity: 0.05;
 }

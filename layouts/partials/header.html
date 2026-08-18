@@ -130,7 +130,7 @@
 {{- if .IsHome }}
 <div class="ascii-man" id="ascii-man"></div>
 <div class="ascii-right" id="ascii-right"></div>
-<div id="ascii-scattered"></div>
+<div id="ascii-fixed-icons"></div>
 <script>
 (function() {
     function loadAscii(url, elementId) {
@@ -145,64 +145,45 @@
     loadAscii('/ascii-man.txt', 'ascii-man');
     loadAscii('/ascii-art-right.txt', 'ascii-right');
 
+    var positions = [
+        { left: '2%',  top: '15%', rotate: -12 },
+        { left: '5%',  top: '45%', rotate: 8 },
+        { left: '1%',  top: '75%', rotate: -5 },
+        { right: '3%', top: '20%', rotate: 10 },
+        { right: '1%', top: '50%', rotate: -8 },
+        { right: '4%', top: '80%', rotate: 6 },
+        { left: '8%',  top: '30%', rotate: -15 },
+        { right: '6%', top: '65%', rotate: 12 },
+        { left: '3%',  top: '60%', rotate: -3 },
+        { right: '2%', top: '40%', rotate: 7 },
+        { left: '6%',  top: '90%', rotate: -10 }
+    ];
+
     fetch('/ascii-icons.txt').then(function(r) {
         if (!r.ok) throw new Error(r.status);
         return r.text();
     }).then(function(raw) {
-        var lines = raw.split('\n');
-        var maxLen = 0;
-        for (var i = 0; i < lines.length; i++) {
-            if (lines[i].length > maxLen) maxLen = lines[i].length;
-        }
-        var cols = [];
-        for (var c = 0; c < maxLen; c++) cols[c] = 0;
-        for (var i = 0; i < lines.length; i++) {
-            for (var c = 0; c < lines[i].length; c++) {
-                if (lines[i][c] !== ' ') cols[c]++;
-            }
-        }
-        var regions = [];
-        var inR = false;
-        var rs = 0;
-        for (var c = 0; c < maxLen; c++) {
-            if (cols[c] > 0 && !inR) { inR = true; rs = c; }
-            else if (cols[c] === 0 && inR) { inR = false; if (c - rs > 8) regions.push([rs, c]); }
-        }
-        if (inR && maxLen - rs > 8) regions.push([rs, maxLen]);
-
+        var blocks = raw.split(/\n(?:\s*\n){9,}/);
         var icons = [];
-        for (var r = 0; r < regions.length; r++) {
-            var s = regions[r][0], e = regions[r][1];
-            var iconLines = [];
-            var hasContent = false;
-            for (var i = 0; i < lines.length; i++) {
-                var line = lines[i];
-                var seg = '';
-                for (var c = s; c < e && c < line.length; c++) seg += line[c];
-                if (seg.trim().length > 0) hasContent = true;
-                iconLines.push(seg);
-            }
-            if (!hasContent) continue;
-            while (iconLines.length > 0 && iconLines[0].trim().length === 0) iconLines.shift();
-            while (iconLines.length > 0 && iconLines[iconLines.length - 1].trim().length === 0) iconLines.pop();
-            if (iconLines.length > 0) icons.push(iconLines.join('\n'));
+        for (var i = 0; i < blocks.length; i++) {
+            var lines = blocks[i].split('\n');
+            while (lines.length > 0 && lines[0].trim().length === 0) lines.shift();
+            while (lines.length > 0 && lines[lines.length - 1].trim().length === 0) lines.pop();
+            if (lines.length > 0) icons.push(lines.join('\n'));
         }
 
-        var container = document.getElementById('ascii-scattered');
+        var container = document.getElementById('ascii-fixed-icons');
         if (!container || icons.length === 0) return;
-        var count = Math.min(icons.length, 8);
-        var indices = [];
-        while (indices.length < count) {
-            var idx = Math.floor(Math.random() * icons.length);
-            if (indices.indexOf(idx) === -1) indices.push(idx);
-        }
-        for (var n = 0; n < count; n++) {
+
+        for (var n = 0; n < icons.length && n < positions.length; n++) {
             var div = document.createElement('div');
-            div.className = 'ascii-icon-scattered';
-            div.textContent = icons[indices[n]];
-            div.style.left = Math.floor(Math.random() * 85 + 2) + '%';
-            div.style.top = Math.floor(Math.random() * 80 + 10) + '%';
-            div.style.transform = 'rotate(' + (Math.floor(Math.random() * 40) - 20) + 'deg)';
+            div.className = 'ascii-icon-fixed';
+            div.textContent = icons[n];
+            var p = positions[n];
+            if (p.left) div.style.left = p.left;
+            if (p.right) div.style.right = p.right;
+            div.style.top = p.top;
+            div.style.transform = 'rotate(' + p.rotate + 'deg)';
             container.appendChild(div);
         }
     }).catch(function() {});
