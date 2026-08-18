@@ -68,7 +68,7 @@
 </style>
 {{- if .IsHome }}
 <div class="clockwork-banner" style="position:relative">
-    <h1>{{ .Site.Title }}</h1>
+    <h1 class="clockwork-title">{{ .Site.Title }}</h1>
     {{- if (not site.Params.disableThemeToggle) }}
     <button id="theme-toggle" class="theme-toggle" style="position:absolute;top:20px;right:30px;background:transparent;border:none;color:#fff;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
