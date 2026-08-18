@@ -1,6 +1,7 @@
 ---
 title: "关于我"
 hideTitle: true
+ShowToc: false
 ---
 
 ## 西流未央

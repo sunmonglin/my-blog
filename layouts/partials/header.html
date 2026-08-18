@@ -17,7 +17,12 @@
                             {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
                         {{ else }}
                             {{- $img = $img.Resize "x30" }}
-                        {{- end }}
+<style>
+.clockwork-banner .theme-toggle { color: #fff; }
+[data-theme="light"] .clockwork-banner .theme-toggle { color: #111; }
+.clockwork-banner .theme-toggle:hover { background: #e63946; color: #fff; }
+</style>
+{{- end }}
                     {{- end }}
                     <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
                         height="{{- site.Params.label.iconHeight | default "30" -}}">
@@ -70,7 +75,7 @@
 <div class="clockwork-banner" style="position:relative">
     <h1 class="clockwork-title">{{ .Site.Title }}</h1>
     {{- if (not site.Params.disableThemeToggle) }}
-    <button id="theme-toggle" class="theme-toggle" style="position:absolute;top:20px;right:30px;background:transparent;border:none;color:#fff;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+    <button id="theme-toggle" class="theme-toggle" style="position:absolute;top:20px;right:30px;background:transparent;border:none;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
