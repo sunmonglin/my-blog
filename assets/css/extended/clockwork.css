@@ -529,7 +529,7 @@ body {
     font-size: 2px;
     line-height: 1.1;
     color: #e63946;
-    opacity: 0.2;
+    opacity: 0.35;
     pointer-events: none;
     white-space: pre;
     z-index: 0;
@@ -768,7 +768,7 @@ body {
 [data-theme="light"] .ascii-icon-scattered,
 [data-theme="light"] .ascii-icon-fixed {
     color: #c62828;
-    opacity: 0.15;
+    opacity: 0.3;
 }
 
 /* ── 20. 首页搜索框 ── */
