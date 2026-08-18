@@ -6,7 +6,7 @@ theme = 'PaperMod'
 
 [params]
   author = "西流未央"
-  description = "当人不能选择的时候，他就不再是一个人了。"
+  description = "When a man cannot choose, he ceases to be a man"
   defaultTheme = "dark"
   disableThemeToggle = false
   ShowReadingTime = true
