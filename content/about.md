@@ -12,13 +12,13 @@ ShowToc: false
 
 我相信文字的力量，也相信代码的秩序。在这个由 0 和 1 构成的牢笼里，我试图用幻想撬开一条裂缝，让光透进来。
 
-这个博客是我的数字囚笼，也是我的自由之地。我在这里写下一些不成熟的想法——关于童年、关于幻想、关于那些在现实与虚构之间游走的瞬间。
+这个博客是我的数字囚笼，也是我的自由之地。我在这里写下一些不成熟的想法——关于物质、关于精神、关于那些在现实与虚构之间游走的瞬间。
 
 写作对我来说，不是逃离现实，而是以另一种方式回到现实。
 
 ---
 
-A soul seeking free will in a digital world. I believe in the power of words and the order of code. In this cage made of 0s and 1s, I try to pry open a crack with fantasy, letting the light pour in. This blog is both my digital prison and my land of freedom. Here I write down some immature thoughts — about childhood, about fantasy, about those moments that wander between reality and fiction. Writing, for me, is not an escape from reality, but a way to return to it through another path.
+A soul seeking free will in a digital world. I believe in the power of words and the order of code. In this cage made of 0s and 1s, I try to pry open a crack with fantasy, letting the light pour in. This blog is both my digital prison and my land of freedom. Here I write down some immature thoughts — about matter, about spirit, about those moments that wander between reality and fiction. Writing, for me, is not an escape from reality, but a way to return to it through another path.
 
 **联系我：**
 - QQ: 3769967977
