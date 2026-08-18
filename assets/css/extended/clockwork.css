@@ -452,19 +452,177 @@ body {
     background: #ff6b6b;
 }
 
-/* ── 15. 亮色模式保护（强制保持暗色） ── */
+/* ── 15. 亮色模式 ── */
 [data-theme="light"] {
-    --theme-color: #e63946;
-    background-color: #111 !important;
+    --theme-color: #c62828;
+    --theme-color-secondary: #e53935;
+    --code-bg-color: #f5f5f5;
+    --border-color: #ccc;
+    --secondary-bg-color: #f9f9f9;
+    --secondary-text-color: #555;
+    --tertiary-text-color: #999;
+    --inline-code-bg-color: #eee;
+    --table-border-color: #ddd;
+    --table-stripe-bg: #f5f5f5;
+}
+
+[data-theme="light"] body {
+    background-color: #fafafa !important;
+    color: #222 !important;
+}
+
+[data-theme="light"] .header {
+    background: #fff !important;
+    border-bottom-color: #ddd !important;
+}
+
+[data-theme="light"] .logo a {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .logo-switches .theme-toggle {
+    border-color: #999 !important;
+    color: #333 !important;
+}
+
+[data-theme="light"] .logo-switches .theme-toggle:hover {
+    background: #c62828 !important;
+    border-color: #c62828 !important;
     color: #fff !important;
 }
 
-[data-theme="light"] body,
-[data-theme="light"] .header,
-[data-theme="light"] .main,
+[data-theme="light"] .menu li a {
+    color: #333 !important;
+}
+
+[data-theme="light"] .menu li a:hover,
+[data-theme="light"] .menu li a .active {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .clockwork-banner {
+    background: #fff !important;
+    border-bottom-color: #ddd !important;
+}
+
+[data-theme="light"] .clockwork-banner h1 {
+    color: #c62828 !important;
+    text-shadow: 2px 2px 0px #eee !important;
+}
+
+[data-theme="light"] .clockwork-subtitle {
+    color: #333 !important;
+}
+
+[data-theme="light"] .post-entry,
+[data-theme="light"] .first-entry {
+    border-color: #ddd !important;
+    background: #fff !important;
+}
+
+[data-theme="light"] .post-entry:hover,
+[data-theme="light"] .first-entry:hover {
+    box-shadow: 10px 10px 0px #c62828 !important;
+}
+
+[data-theme="light"] .entry-header h2,
+[data-theme="light"] .entry-header h2 a {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .entry-content p {
+    color: #333 !important;
+}
+
+[data-theme="light"] .entry-footer {
+    border-top-color: #ddd !important;
+}
+
+[data-theme="light"] .post-single .post-title {
+    color: #c62828 !important;
+    text-shadow: 2px 2px 0px #eee !important;
+}
+
+[data-theme="light"] .post-single .post-content h2 {
+    border-bottom-color: #ddd !important;
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .post-single .post-content a {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .post-single .post-content blockquote {
+    border-left-color: #c62828 !important;
+    background: #f5f5f5 !important;
+    color: #555 !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box {
+    border-color: #ddd !important;
+    background: #fff !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box h3 {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box ul li {
+    color: #333 !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box ul li a {
+    color: #333 !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box ul li a:hover {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .clockwork-sidebar .sidebar-box ul li::before {
+    color: #c62828 !important;
+}
+
 [data-theme="light"] .footer {
-    background-color: #111 !important;
-    color: #fff !important;
+    background: #fff !important;
+    border-top-color: #ddd !important;
+    color: #666 !important;
+}
+
+[data-theme="light"] .footer a {
+    color: #c62828 !important;
+}
+
+[data-theme="light"] .page-footer {
+    border-top-color: #ddd !important;
+}
+
+[data-theme="light"] .comment-divider {
+    border-top-color: #ddd !important;
+}
+
+[data-theme="light"] .comment-divider::before {
+    background: #fafafa !important;
+    color: #999 !important;
+}
+
+[data-theme="light"] ::selection {
+    background: #c62828;
+    color: #fff;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+[data-theme="light"] .search-input {
+    background: #fff !important;
+    border-color: #ddd !important;
+    color: #333 !important;
+}
+
+[data-theme="light"] .search-input:focus {
+    border-color: #c62828 !important;
 }
 
 /* ── 16. 文章段落首行缩进 ── */
