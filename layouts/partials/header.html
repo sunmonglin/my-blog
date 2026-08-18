@@ -90,6 +90,13 @@
 </div>
 {{- end }}
 
+<script>
+window.addEventListener("pageshow", function() {
+    var t = localStorage.getItem("pref-theme");
+    if (t) document.querySelector("html").dataset.theme = t;
+});
+</script>
+
 {{- if .IsHome }}
 <div class="ascii-man" id="ascii-man"></div>
 <div class="ascii-right" id="ascii-right"></div>
