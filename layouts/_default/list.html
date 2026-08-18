@@ -50,8 +50,8 @@
   <main class="clockwork-main">
     {{- if .IsHome }}
     <div class="home-search">
-      <form action="/search/" method="get">
-        <input type="text" name="s" placeholder="搜索文章..." aria-label="搜索" class="home-search-input">
+      <form onsubmit="localStorage.setItem('homeSearchQuery',document.getElementById('homeSearchInput').value);window.location.href='/search/'">
+        <input type="text" id="homeSearchInput" placeholder="搜索文章..." aria-label="搜索" class="home-search-input">
       </form>
     </div>
     {{- end }}
