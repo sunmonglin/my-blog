@@ -18,9 +18,12 @@
                         {{ else }}
                             {{- $img = $img.Resize "x30" }}
 <style>
-.clockwork-banner .theme-toggle { color: #fff; }
-[data-theme="light"] .clockwork-banner .theme-toggle { color: #111; }
-.clockwork-banner .theme-toggle:hover { background: #e63946; color: #fff; }
+.clockwork-banner .theme-toggle,
+.post-single .theme-toggle { color: #fff; }
+[data-theme="light"] .clockwork-banner .theme-toggle,
+[data-theme="light"] .post-single .theme-toggle { color: #111; }
+.clockwork-banner .theme-toggle:hover,
+.post-single .theme-toggle:hover { background: #e63946; color: #fff; }
 </style>
 {{- end }}
                     {{- end }}
