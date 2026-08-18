@@ -64,15 +64,6 @@
     </nav>
 </header>
 
-{{- if (not site.Params.disableThemeToggle) }}
-<div style="position:fixed;top:20px;right:30px;z-index:999">
-    <button id="theme-toggle" class="theme-toggle" style="background:transparent;border:none;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-    </button>
-</div>
-{{- end }}
-
 <style>
 .post-content p, .entry-content p { text-indent: 2em; margin-bottom: 1em; }
 .comment-section h3 { color: #e63946; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
@@ -82,6 +73,12 @@
 {{- if .IsHome }}
 <div class="clockwork-banner" style="position:relative">
     <h1 class="clockwork-title">{{ .Site.Title }}</h1>
+    {{- if (not site.Params.disableThemeToggle) }}
+    <button id="theme-toggle" class="theme-toggle" style="position:absolute;top:20px;right:30px;background:transparent;border:none;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+    {{- end }}
     <div class="clockwork-subtitle">When a man cannot choose, he ceases to be a man</div>
 
     <div class="clockwork-contact" style="margin-top:12px;font-size:0.9em;opacity:0.7;">
@@ -94,6 +91,18 @@
 window.addEventListener("pageshow", function() {
     var t = localStorage.getItem("pref-theme");
     if (t) document.querySelector("html").dataset.theme = t;
+});
+document.querySelectorAll(".theme-toggle").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+        var html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = "light";
+            localStorage.setItem("pref-theme", "light");
+        } else {
+            html.dataset.theme = "dark";
+            localStorage.setItem("pref-theme", "dark");
+        }
+    });
 });
 </script>
 
