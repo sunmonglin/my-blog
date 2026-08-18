@@ -61,6 +61,12 @@ body {
     color: #ff6b6b !important;
 }
 
+.logo-switches {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 15px !important;
+}
+
 .logo-switches .theme-toggle {
     background: transparent !important;
     border: 2px solid #fff !important;
