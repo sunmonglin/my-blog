@@ -25,6 +25,7 @@ body {
     font-family: 'Courier New', Courier, monospace !important;
     background-color: #111 !important;
     color: #fff !important;
+    position: relative;
 }
 
 ::selection {
@@ -36,6 +37,8 @@ body {
 .header {
     background: #111 !important;
     border-bottom: 3px solid #fff !important;
+    position: relative;
+    z-index: 2;
 }
 
 .header-nav {
@@ -105,6 +108,8 @@ body {
     padding: 40px 20px 30px;
     text-align: center;
     background: #111;
+    position: relative;
+    z-index: 2;
 }
 
 .clockwork-banner h1 {
@@ -138,6 +143,17 @@ body {
 }
 
 /* ── 5. 内容容器（两栏网格） ── */
+#ascii-scattered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
 .clockwork-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -145,6 +161,8 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .clockwork-main {
@@ -394,6 +412,8 @@ body {
     text-align: center !important;
     font-family: 'Courier New', Courier, monospace !important;
     color: #888 !important;
+    position: relative;
+    z-index: 2;
 }
 
 .footer a {
@@ -644,6 +664,12 @@ body {
 .post-content h2,
 .post-content h3 {
     text-indent: 0;
+}
+
+/* ── 16b. 主内容区域层级 ── */
+.main {
+    position: relative;
+    z-index: 2;
 }
 
 /* ── 17. 响应式 ── */
