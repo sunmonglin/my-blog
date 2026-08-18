@@ -92,18 +92,6 @@ window.addEventListener("pageshow", function() {
     var t = localStorage.getItem("pref-theme");
     if (t) document.querySelector("html").dataset.theme = t;
 });
-document.querySelectorAll(".theme-toggle").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-        var html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = "light";
-            localStorage.setItem("pref-theme", "light");
-        } else {
-            html.dataset.theme = "dark";
-            localStorage.setItem("pref-theme", "dark");
-        }
-    });
-});
 </script>
 
 {{- if .IsHome }}
