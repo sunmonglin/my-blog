@@ -516,6 +516,11 @@ body {
     text-shadow: 2px 2px 0px #eee !important;
 }
 
+[data-theme="light"] .clockwork-banner .theme-toggle {
+    border-color: #333 !important;
+    color: #333 !important;
+}
+
 [data-theme="light"] .clockwork-subtitle {
     color: #333 !important;
 }
