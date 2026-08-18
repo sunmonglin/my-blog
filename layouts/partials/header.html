@@ -144,7 +144,8 @@ fetch('/ascii-art-right.txt').then(function(r){return r.text()}).then(function(t
 .ascii-man {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: auto;
+    top: 20%;
     font-family: 'Courier New', Courier, monospace;
     font-size: 6px;
     line-height: 1;
@@ -158,7 +159,7 @@ fetch('/ascii-art-right.txt').then(function(r){return r.text()}).then(function(t
 }
 .ascii-right {
     position: fixed;
-    right: -30px;
+    right: -80px;
     top: 50%;
     transform: translateY(-50%);
     font-family: 'Courier New', Courier, monospace;
