@@ -526,7 +526,7 @@ body {
 .ascii-icon-fixed {
     position: fixed;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3px;
+    font-size: 2px;
     line-height: 1.1;
     color: #e63946;
     opacity: 0.2;
