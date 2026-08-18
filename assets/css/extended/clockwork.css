@@ -771,7 +771,12 @@ body {
     opacity: 0.15;
 }
 
-/* ── 20. 响应式 ── */
+/* ── 20. 统一文章标题大小 ── */
+.first-entry .entry-header h2 {
+    font-size: 24px;
+}
+
+/* ── 21. 响应式 ── */
 @media (max-width: 900px) {
     .clockwork-container {
         grid-template-columns: 1fr;
