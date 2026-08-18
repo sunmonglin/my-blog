@@ -17,7 +17,7 @@ hideTitle: true
 
 ---
 
-> A soul seeking free will in a digital world. I believe in the power of words and the order of code. In this cage made of 0s and 1s, I try to pry open a crack with fantasy, letting the light pour in. This blog is both my digital prison and my land of freedom. Here I write down some immature thoughts — about childhood, about fantasy, about those moments that wander between reality and fiction. Writing, for me, is not an escape from reality, but a way to return to it through another path.
+A soul seeking free will in a digital world. I believe in the power of words and the order of code. In this cage made of 0s and 1s, I try to pry open a crack with fantasy, letting the light pour in. This blog is both my digital prison and my land of freedom. Here I write down some immature thoughts — about childhood, about fantasy, about those moments that wander between reality and fiction. Writing, for me, is not an escape from reality, but a way to return to it through another path.
 
 **联系我：**
 - QQ: 3769967977
