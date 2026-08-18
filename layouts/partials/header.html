@@ -60,6 +60,30 @@
             {{- end }}
         </ul>
 
+        {{- if and (not site.Params.disableThemeToggle) (not .IsHome) }}
+        <div class="logo-switches">
+            <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+        {{- end }}
     </nav>
 </header>
 
@@ -70,10 +94,9 @@
 .giscus { border-top: 1px solid #333; padding-top: 20px; }
 </style>
 {{- if .IsHome }}
-<div class="clockwork-banner">
-    <h1 style="display:inline;">{{ .Site.Title }}</h1>
-    {{- if (not site.Params.disableThemeToggle) }}
-    <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme" style="vertical-align:middle;margin-left:20px;background:transparent;border:2px solid #fff;color:#fff;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px;position:relative;top:-2px;">
+{{- if (not site.Params.disableThemeToggle) }}
+<div style="position:fixed;top:12px;right:30px;z-index:100;">
+    <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme" style="background:transparent;border:2px solid #fff;color:#fff;padding:8px 12px;cursor:pointer;transition:all 0.3s;border-radius:4px;">
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -93,8 +116,9 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
     </button>
-    {{- end }}
-    <div class="clockwork-subtitle">When a man cannot choose, he ceases to be a man</div>
+</div>
+{{- end }}
+<div class="clockwork-banner">
 
     <div class="clockwork-contact" style="margin-top:12px;font-size:0.9em;opacity:0.7;">
         QQ: 3769967977 &nbsp;|&nbsp; EMAIL: sunmonglin@gmail.com &nbsp;|&nbsp; <a href="/about/" style="color:#e63946;text-decoration:none;">关于我</a>
