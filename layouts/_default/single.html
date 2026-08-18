@@ -82,27 +82,30 @@
 
   <script>
     function getGiscusTheme() {
-      var theme = document.documentElement.getAttribute("data-theme");
-      return theme === "light" ? "light" : "dark";
+      return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
     }
 
     function setGiscusTheme() {
-      var iframe = document.querySelector(".giscus-frame");
-      if (!iframe) return;
-      iframe.contentWindow.postMessage(
-        { giscus: { setConfig: { theme: getGiscusTheme() } } },
-        "https://giscus.app"
-      );
+      var iframes = document.querySelectorAll("iframe.giscus-frame, .giscus iframe");
+      iframes.forEach(function(iframe) {
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: getGiscusTheme() } } },
+          "https://giscus.app"
+        );
+      });
     }
 
-    var observer = new MutationObserver(function() {
-      var iframe = document.querySelector(".giscus-frame");
-      if (iframe) {
+    var giscusLoaded = false;
+
+    var bodyObserver = new MutationObserver(function() {
+      var iframe = document.querySelector(".giscus-frame") || document.querySelector("iframe[src*='giscus']");
+      if (iframe && !giscusLoaded) {
+        giscusLoaded = true;
         iframe.addEventListener("load", setGiscusTheme);
-        observer.disconnect();
+        bodyObserver.disconnect();
       }
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    bodyObserver.observe(document.body, { childList: true, subtree: true });
 
     var themeObserver = new MutationObserver(function() {
       setGiscusTheme();
@@ -110,6 +113,23 @@
     themeObserver.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["data-theme"]
+    });
+    themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-theme"]
+    });
+
+    window.addEventListener("storage", function(e) {
+      if (e.key === "theme") {
+        setTimeout(setGiscusTheme, 100);
+      }
+    });
+
+    window.addEventListener("message", function(e) {
+      if (e.origin !== "https://giscus.app") return;
+      if (e.data && e.data.giscus) {
+        setGiscusTheme();
+      }
     });
   </script>
 </article>
