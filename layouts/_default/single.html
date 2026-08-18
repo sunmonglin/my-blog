@@ -64,7 +64,58 @@
     <div class="giscus" style="margin-top:20px;"></div>
   </div>
 
-  <script src="https://giscus.app/client.js"
+  <div id="ascii-article-icons"></div>
+<script>
+(function() {
+    var leftPositions = [
+        { left: '1%',  top: '8%',  rotate: -6 },
+        { left: '2%',  top: '22%', rotate: 4 },
+        { left: '1%',  top: '38%', rotate: -3 },
+        { left: '3%',  top: '55%', rotate: 5 },
+        { left: '1%',  top: '72%', rotate: -4 },
+        { left: '2%',  top: '88%', rotate: 7 }
+    ];
+    var rightPositions = [
+        { right: '1%', top: '12%', rotate: 5 },
+        { right: '2%', top: '30%', rotate: -7 },
+        { right: '1%', top: '48%', rotate: 3 },
+        { right: '3%', top: '66%', rotate: -5 },
+        { right: '1%', top: '84%', rotate: 4 }
+    ];
+    var allPositions = leftPositions.concat(rightPositions);
+
+    fetch('/ascii-icons.txt').then(function(r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+    }).then(function(raw) {
+        var blocks = raw.split(/\n(?:\s*\n){9,}/);
+        var icons = [];
+        for (var i = 0; i < blocks.length; i++) {
+            var lines = blocks[i].split('\n');
+            while (lines.length > 0 && lines[0].trim().length === 0) lines.shift();
+            while (lines.length > 0 && lines[lines.length - 1].trim().length === 0) lines.pop();
+            if (lines.length > 0) icons.push(lines.join('\n'));
+        }
+
+        var container = document.getElementById('ascii-article-icons');
+        if (!container || icons.length === 0) return;
+
+        for (var n = 0; n < icons.length && n < allPositions.length; n++) {
+            var div = document.createElement('div');
+            div.className = 'ascii-icon-fixed';
+            div.textContent = icons[n];
+            var p = allPositions[n];
+            if (p.left) div.style.left = p.left;
+            if (p.right) div.style.right = p.right;
+            div.style.top = p.top;
+            div.style.transform = 'rotate(' + p.rotate + 'deg)';
+            container.appendChild(div);
+        }
+    }).catch(function() {});
+})();
+</script>
+
+<script src="https://giscus.app/client.js"
     data-repo="sunmonglin/my-blog"
     data-repo-id="R_kgDOT6yAuQ"
     data-category="Announcements"

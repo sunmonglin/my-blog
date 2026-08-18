@@ -130,7 +130,6 @@
 {{- if .IsHome }}
 <div class="ascii-man" id="ascii-man"></div>
 <div class="ascii-right" id="ascii-right"></div>
-<div id="ascii-fixed-icons"></div>
 <script>
 (function() {
     function loadAscii(url, elementId) {
@@ -144,49 +143,6 @@
     }
     loadAscii('/ascii-man.txt', 'ascii-man');
     loadAscii('/ascii-art-right.txt', 'ascii-right');
-
-    var positions = [
-        { left: '3%',  top: '12%', rotate: -6 },
-        { left: '1%',  top: '35%', rotate: 4 },
-        { left: '4%',  top: '60%', rotate: -3 },
-        { left: '2%',  top: '85%', rotate: 7 },
-        { right: '2%', top: '10%', rotate: 5 },
-        { right: '1%', top: '38%', rotate: -7 },
-        { right: '3%', top: '62%', rotate: 3 },
-        { right: '1%', top: '88%', rotate: -4 },
-        { left: '10%', top: '22%', rotate: 8 },
-        { right: '9%', top: '50%', rotate: -5 },
-        { left: '8%',  top: '75%', rotate: -2 }
-    ];
-
-    fetch('/ascii-icons.txt').then(function(r) {
-        if (!r.ok) throw new Error(r.status);
-        return r.text();
-    }).then(function(raw) {
-        var blocks = raw.split(/\n(?:\s*\n){9,}/);
-        var icons = [];
-        for (var i = 0; i < blocks.length; i++) {
-            var lines = blocks[i].split('\n');
-            while (lines.length > 0 && lines[0].trim().length === 0) lines.shift();
-            while (lines.length > 0 && lines[lines.length - 1].trim().length === 0) lines.pop();
-            if (lines.length > 0) icons.push(lines.join('\n'));
-        }
-
-        var container = document.getElementById('ascii-fixed-icons');
-        if (!container || icons.length === 0) return;
-
-        for (var n = 0; n < icons.length && n < positions.length; n++) {
-            var div = document.createElement('div');
-            div.className = 'ascii-icon-fixed';
-            div.textContent = icons[n];
-            var p = positions[n];
-            if (p.left) div.style.left = p.left;
-            if (p.right) div.style.right = p.right;
-            div.style.top = p.top;
-            div.style.transform = 'rotate(' + p.rotate + 'deg)';
-            container.appendChild(div);
-        }
-    }).catch(function() {});
 })();
 </script>
 
