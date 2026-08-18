@@ -1,0 +1,32 @@
+<div class="share-section">
+    <button class="share-btn" onclick="copyArticleLink()" title="分享文章">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        <span class="share-text">复制链接</span>
+    </button>
+    <span class="share-toast" id="share-toast">已复制</span>
+</div>
+<script>
+function copyArticleLink() {
+    navigator.clipboard.writeText(window.location.href).then(function() {
+        var toast = document.getElementById('share-toast');
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 1500);
+    });
+}
+</script>
+<style>
+.share-section { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 1px solid #555; color: #ccc;
+    padding: 6px 14px; cursor: pointer; font-family: 'Courier New', monospace;
+    font-size: 0.85em; transition: all 0.3s; border-radius: 3px;
+}
+.share-btn:hover { border-color: #e63946; color: #e63946; }
+[data-theme="light"] .share-btn { border-color: #999; color: #333; }
+[data-theme="light"] .share-btn:hover { border-color: #c62828; color: #c62828; }
+.share-toast {
+    font-size: 0.8em; color: #e63946; opacity: 0; transition: opacity 0.3s;
+}
+.share-toast.show { opacity: 1; }
+</style>
