@@ -510,7 +510,7 @@ body {
 .ascii-right {
     position: fixed;
     left: 60px;
-    top: 55%;
+    top: 65%;
     transform: translateY(-50%);
     font-family: 'Courier New', Courier, monospace;
     font-size: 6px;
