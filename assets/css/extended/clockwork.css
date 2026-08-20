@@ -450,7 +450,7 @@ body {
 }
 
 .searchbox input {
-    max-width: 500px;
+    max-width: 75%;
 }
 
 .search-input:focus {
