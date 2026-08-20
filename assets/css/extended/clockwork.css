@@ -446,6 +446,11 @@ body {
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
     padding: 12px 15px;
+    max-width: 500px;
+}
+
+.searchbox input {
+    max-width: 500px;
 }
 
 .search-input:focus {
