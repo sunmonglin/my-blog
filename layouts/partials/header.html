@@ -17,11 +17,6 @@
                             {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
                         {{ else }}
                             {{- $img = $img.Resize "x30" }}
-<style>
-.theme-toggle { color: #fff; }
-[data-theme="light"] .theme-toggle { color: #111; }
-.theme-toggle:hover { background: #e63946; color: #fff; }
-</style>
 {{- end }}
                     {{- end }}
                     <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
@@ -69,6 +64,9 @@
 .comment-section h3 { color: #e63946; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
 .comment-divider { border-top-color: #333; }
 .giscus { border-top: 1px solid #333; padding-top: 20px; }
+.theme-toggle { color: #fff; }
+[data-theme="light"] .theme-toggle { color: #111; }
+.theme-toggle:hover { background: #e63946; color: #fff; }
 </style>
 {{- if .IsHome }}
 <div class="clockwork-banner" style="position:relative">
