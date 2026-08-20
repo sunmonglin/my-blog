@@ -22,7 +22,7 @@ theme = 'PaperMod'
   mainSections = ["社会观察", "精神自省"]
 
   [params.assets]
-    favicon = "/favicon.ico"
+    favicon = "/favicon.png"
 
   [params.label]
     text = "西流未央的博客"
