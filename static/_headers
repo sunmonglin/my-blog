@@ -1,0 +1,15 @@
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: no-cache
+
+/favicon.png
+  Content-Type: image/png
+  Cache-Control: no-cache
+
+/favicon-16x16.png
+  Content-Type: image/png
+  Cache-Control: no-cache
+
+/favicon-32x32.png
+  Content-Type: image/png
+  Cache-Control: no-cache
