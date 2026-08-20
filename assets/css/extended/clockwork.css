@@ -492,7 +492,7 @@ body {
 /* ── 16b. ASCII 艺术装饰 ── */
 .ascii-man {
     position: fixed;
-    right: 80px;
+    right: 120px;
     bottom: auto;
     top: 40%;
     font-family: 'Courier New', Courier, monospace;
