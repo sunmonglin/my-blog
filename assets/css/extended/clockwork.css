@@ -485,6 +485,8 @@ body {
 .main {
     position: relative;
     z-index: 2;
+    max-width: 100%;
+    padding: 0;
 }
 
 /* ── 16b. ASCII 艺术装饰 ── */
